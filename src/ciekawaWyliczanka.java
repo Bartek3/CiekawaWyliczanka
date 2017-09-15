@@ -2,44 +2,12 @@ import java.util.Scanner;
 
 public class ciekawaWyliczanka {
 
-    private static double howManyCiphers(long input) {
-        double pow = 1;
-        do {
-            pow++;
-        }
-        while (input - Math.pow(2, pow) >= -1);
-        return pow - 1;
-    }
-
-    private static double sumOfPows(double howManyCiphers) {
-        double sumOfPows = 0;
-        for (int i = 1; i <= howManyCiphers - 1; i++) {
-            sumOfPows += Math.pow(2, i);
-        }
-        return sumOfPows;
-    }
-
-    private static double actualRest(double howManyCiphers, long input) {
-        return input - sumOfPows(howManyCiphers);
-    }
-
-    private static double newRest(double howManyCiphers, double actualRest) {
-        double lowerPow = Math.pow(2, howManyCiphers - 1);
-        double temp = (Math.floor(actualRest / 2));
-        return lowerPow + temp;
-    }
-
-    private static String fiveOrSix(double rest) {
-        if (rest % 2 != 0) {
-            return "5";
-        }
-        return "6";
-    }
-
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-        long input = in.nextLong();
+        String inputString = in.next();
+        int input = Integer.parseInt(inputString);
+
         double howManyCiphers = howManyCiphers(input);
         double actualRest = actualRest(howManyCiphers, input);
         String[] Output = new String[(int) howManyCiphers];
@@ -60,5 +28,39 @@ public class ciekawaWyliczanka {
         }
 
         System.out.println(outputString);
+    }
+
+
+    private static double howManyCiphers(int input) {
+        double pow = 1;
+        do {
+            pow++;
+        }
+        while (input - Math.pow(2, pow) >= -1);
+        return pow - 1;
+    }
+
+    private static double sumOfPows(double howManyCiphers) {
+        double sumOfPows = 0;
+        for (int i = 1; i <= howManyCiphers - 1; i++) {
+            sumOfPows += Math.pow(2, i);
+        }
+        return sumOfPows;
+    }
+    private static double actualRest(double howManyCiphers, int input) {
+        return input - sumOfPows(howManyCiphers);
+    }
+
+    private static double newRest(double howManyCiphers, double actualRest) {
+        double lowerPow = Math.pow(2, howManyCiphers - 1);
+        double temp = (Math.floor(actualRest / 2));
+        return lowerPow + temp;
+    }
+
+    private static String fiveOrSix(double rest) {
+        if (rest % 2 != 0) {
+            return "5";
+        }
+        return "6";
     }
 }
