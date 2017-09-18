@@ -5,12 +5,7 @@ public class ciekawaWyliczanka {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-        if (!in.hasNextInt() || in.nextLong() > 1000000000 || in.nextLong() < 1) {
-            System.out.println("Enter a valid number from range 0 - 1 000 000 000!");
-            in.next();
-        }
-        int input = in.nextInt();
-
+        int input = input(in);
         double howManyCiphers = howManyCiphers(input);
         double actualRest = actualRest(howManyCiphers, input);
         String[] Output = new String[(int) howManyCiphers];
@@ -31,6 +26,21 @@ public class ciekawaWyliczanka {
         }
 
         System.out.println(outputString);
+    }
+
+    private static int input(Scanner in) {
+        if (!in.hasNextInt()) {
+            System.out.println("Input is not a valid number from range 1 - 1 000 000 000!");
+            System.exit(0);
+        }
+        int input = in.nextInt();
+
+        if (input > 1000000000 || input < 1) {
+            System.out.println("Input is not a valid number from range 1 - 1 000 000 000!");
+            System.exit(0);
+        }
+
+        return input;
     }
 
 
