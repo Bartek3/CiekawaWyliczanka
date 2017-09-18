@@ -5,8 +5,11 @@ public class ciekawaWyliczanka {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-        String inputString = in.next();
-        int input = Integer.parseInt(inputString);
+        if (!in.hasNextInt() || in.nextLong() > 1000000000 || in.nextLong() < 1) {
+            System.out.println("Enter a valid number from range 0 - 1 000 000 000!");
+            in.next();
+        }
+        int input = in.nextInt();
 
         double howManyCiphers = howManyCiphers(input);
         double actualRest = actualRest(howManyCiphers, input);
@@ -47,6 +50,7 @@ public class ciekawaWyliczanka {
         }
         return sumOfPows;
     }
+
     private static double actualRest(double howManyCiphers, int input) {
         return input - sumOfPows(howManyCiphers);
     }
