@@ -34,14 +34,12 @@ public class ciekawaWyliczanka {
     //Metoda pobierająca liczbę wejściową w założonym zakresie (1 - 1 000 000 000)
     private static int input(Scanner in) {
         if (!in.hasNextInt()) {
-            System.out.println("Input is not a valid number from range 1 - 1 000 000 000!");
-            System.exit(0);
+            exit();
         }
         int input = in.nextInt();
 
         if (input > 1000000000 || input < 1) {
-            System.out.println("Input is not a valid number from range 1 - 1 000 000 000!");
-            System.exit(0);
+            exit();
         }
 
         return input;
@@ -85,5 +83,11 @@ public class ciekawaWyliczanka {
             return "5";
         }
         return "6";
+    }
+
+    //Wyodrębnienie powtarzającego się kodu do osobnej metody
+    private static void exit(){
+        System.out.println("Input is not a valid number from range 1 - 1 000 000 000!");
+        System.exit(0);
     }
 }
