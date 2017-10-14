@@ -20,7 +20,7 @@ public class ciekawaWyliczanka {
             Output[i] = fiveOrSix(actualRest);
         }
 
-        String outputString = ""; //Zadeklarowanie Stringa zawierającego liczbę wyjściową
+        String outputString = ""; //Zadeklarowanie obiektu zawierającego liczbę wyjściową
 
         //Połączenie elementów tablicy zawierającej cyfry liczby wyjściowej w jedno słowo, czyli outputString
         for (int i = 0; i <= Output.length - 1; i++) {
