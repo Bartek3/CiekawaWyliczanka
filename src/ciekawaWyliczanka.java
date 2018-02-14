@@ -6,7 +6,7 @@ public class ciekawaWyliczanka {
 
         Scanner in = new Scanner(System.in);
         int input = input(in); //Pobranie liczby mieszczącej się w zakresie 1 - 1 000 000 000
-        double howManyCiphers = howManyCiphers(input); //Sprawdzenie, z ilu cyfer będzie się składać liczba wyjściowa
+        double howManyCiphers = howManyCiphers(input); //Sprawdzenie, z ilu cyfr będzie się składać liczba wyjściowa
         double actualRest = actualRest(howManyCiphers, input); //Ustalenie pozycji liczby w wierszu drzewa matematycznego
         String[] Output = new String[(int) howManyCiphers]; //Zadeklarowanie tablicy zawierającej cyfry liczby wyjściowej
         Output[Output.length - 1] = fiveOrSix(actualRest); //Ustalenie ostatniej cyfry liczby wyjściowej
